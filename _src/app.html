@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+
+<input 
+    #newPerson 
+    class=""
+    id="new-name"
+    autofocus 
+    (keyup)="addPerson($event, newPerson)"/>
+
+<ul class="heroes">
+	<li *ngFor="#person of people" [class.selected]="person === selectedPerson" (click)="onSelect(person)">
+		<span class="badge">{{person.id}}</span> {{person.name}} <span class="badge-vote">{{person.votes}}</span>
+		<span class="vote-btn" (click)="vote(person, 1)">Vote</span>
+	</li>
+</ul>
+
+
+<hello-world></hello-world>
