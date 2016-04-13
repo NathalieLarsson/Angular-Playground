@@ -1,0 +1,524 @@
+// Typo
+
+.line-height(@value) {
+    @rem: (@value / 10);
+    line-height : @value * 1px;
+    line-height: ~"@{rem}rem";
+}
+
+// .line-height(@value) when (ispixel(@value)) {
+//     @rem: (@value / 10);
+//     width : @value * 1px;
+//     line-height: ~"@{rem}rem";
+// }
+
+// Dimensions
+.width() {
+	width: auto
+}
+
+.width(@width){
+	@rem: (@width / 10);
+	width : @width * 1px;
+	width : ~"@{rem}rem";
+}
+
+.min-width(@width){
+	@rem: (@width / 10);
+	min-width : @width * 1px;
+	min-width : ~"@{rem}rem";
+}
+
+.max-width(@width){
+	@rem: (@width / 10);
+	max-width : @width * 1px;
+	max-width : ~"@{rem}rem";
+}
+
+.height(@height){
+	@rem: (@height / 10);
+	height : @height * 1px;
+	height : ~"@{rem}rem";
+}
+
+.min-height(@height){
+	@rem: (@height / 10);
+	min-height : @height * 1px;
+	min-height : ~"@{rem}rem";
+}
+
+.max-height(@height){
+	@rem: (@height / 10);
+	max-height : @height * 1px;
+	max-height : ~"@{rem}rem";
+}
+
+// Margin
+
+.margin(@all){
+	@remAll: (@all / 10);
+	margin : @all * 1px;
+	margin : ~"@{remAll}rem";
+}
+
+.margin(@vertical, @horizontal) when (isnumber(@vertical)) and (isnumber(@horizontal)){
+	@remVertical: (@vertical / 10);
+	@remHorizontal: (@horizontal / 10);
+	margin : @vertical * 1px @horizontal * 1px;
+	margin : ~"@{remVertical}rem" ~"@{remHorizontal}rem";
+}
+
+.margin(@top, @horizontal, @bottom) when (isnumber(@top)) and (isnumber(@horizontal)) and (isnumber(@bottom)){
+	@remTop: (@top / 10);
+	@remHorizontal: (@horizontal / 10);
+	@remBottom: (@bottom / 10);
+	margin : @top * 1px @horizontal * 1px @bottom * 1px;
+	margin : ~"@{remTop}rem" ~"@{remHorizontal}rem" ~"@{remBottom}rem";
+}
+
+.margin(@top, @right, @bottom, @left) when (isnumber(@top)) and (isnumber(@right)) and (isnumber(@bottom)) and (isnumber(@left)){
+	@remTop: (@top / 10);
+	@remRight: (@right / 10);
+	@remBottom: (@bottom / 10);
+	@remLeft: (@left / 10);
+	margin : @top * 1px @right * 1px @bottom * 1px @left * 1px;
+	margin : ~"@{remTop}rem" ~"@{remRight}rem" ~"@{remBottom}rem" ~"@{remLeft}rem";
+}
+
+.margin-top(@value: 10){
+	@rem: (@value / 10);
+	margin-top : @value * 1px;
+	margin-top : ~"@{rem}rem";
+}
+
+.margin-right(@value: 10){
+	@rem: (@value / 10);
+	margin-right : @value * 1px;
+	margin-right : ~"@{rem}rem";
+}
+
+.margin-bottom(@value: 10){
+	@rem: (@value / 10);
+	margin-bottom : @value * 1px;
+	margin-bottom : ~"@{rem}rem";
+}
+
+.margin-left(@value: 10){
+	@rem: (@value / 10);
+	margin-left : @value * 1px;
+	margin-left : ~"@{rem}rem";
+}
+
+// Padding
+
+.padding(@all: 10){
+	@remAll: (@all / 10);
+	padding : @all * 1px;
+	padding : ~"@{remAll}rem";
+}
+
+.padding(@vertical, @horizontal) when (isnumber(@vertical)) and (isnumber(@horizontal)){
+	@remVertical: (@vertical / 10);
+	@remHorizontal: (@horizontal / 10);
+	padding : @vertical * 1px @horizontal * 1px;
+	padding : ~"@{remVertical}rem" ~"@{remHorizontal}rem";
+}
+
+.padding(@top, @horizontal, @bottom) when (isnumber(@top)) and (isnumber(@horizontal)) and (isnumber(@bottom)){
+	@remTop: (@top / 10);
+	@remHorizontal: (@horizontal / 10);
+	@remBottom: (@bottom / 10);
+	padding : @top * 1px @horizontal * 1px @bottom * 1px;
+	padding : ~"@{remTop}rem" ~"@{remHorizontal}rem" ~"@{remBottom}rem";
+}
+
+.padding(@top, @right, @bottom, @left) when (isnumber(@top)) and (isnumber(@right)) and (isnumber(@bottom)) and (isnumber(@left)){
+	@remTop: (@top / 10);
+	@remRight: (@right / 10);
+	@remBottom: (@bottom / 10);
+	@remLeft: (@left / 10);
+	padding : @top * 1px @right * 1px @bottom * 1px @left * 1px;
+	padding : ~"@{remTop}rem" ~"@{remRight}rem" ~"@{remBottom}rem" ~"@{remLeft}rem";
+}
+
+.padding-top(@value: 10){
+	@rem: (@value / 10);
+	padding-top : @value * 1px;
+	padding-top : ~"@{rem}rem";
+}
+
+.padding-right(@value: 10){
+	@rem: (@value / 10);
+	padding-right : @value * 1px;
+	padding-right : ~"@{rem}rem";
+}
+
+.padding-bottom(@value: 10){
+	@rem: (@value / 10);
+	padding-bottom : @value * 1px;
+	padding-bottom : ~"@{rem}rem";
+}
+
+.padding-left(@value: 10){
+	@rem: (@value / 10);
+	padding-left : @value * 1px;
+	padding-left : ~"@{rem}rem";
+}
+
+.ir(@width, @ratio) {
+	// calculate ratios by dividing width/height
+	// so a 16x9 box would be 16/9 = 1.777777778
+	width: unit(@width, ~'%');
+	height: 0;
+	padding-bottom: unit(@width / @ratio, ~'%');
+}
+
+.ir(@width, @ratio-width, @ratio-height) {
+	.ir(@width, unit(@ratio-width) / unit(@ratio-height));
+}
+
+.font-size(@font-size: @theme-font-size-base){
+	@rem: (@font-size / 10);
+	font-size : @font-size * 1px;
+	font-size : ~"@{rem}rem";
+}
+
+// Transformations / Transistions
+.transition(@transition) {
+  -webkit-transition: @transition;
+          transition: @transition;
+}
+
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees); // IE9+
+          transform: rotate(@degrees);
+}
+
+// Hide text
+.hide-text {
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}
+
+// Buttons
+.reset-button-style(){
+	border: none;
+	background-color: transparent;
+}
+
+// .columns(250px, 0, 24px, COLOR, solid, 1px)
+
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #eee, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+	-webkit-column-width : @colwidth;
+	-webkit-column-count : @colcount;
+	-webkit-column-gap : @colgap;
+	-webkit-column-rule-color : @columnRuleColor;
+	-webkit-column-rule-style : @columnRuleStyle;
+	-webkit-column-rule-width : @columnRuleWidth;
+	-moz-column-width : @colwidth;
+	-moz-column-count : @colcount;
+	-moz-column-gap : @colgap;
+	-moz-column-rule-color : @columnRuleColor;
+	-moz-column-rule-style : @columnRuleStyle;
+	-moz-column-rule-width : @columnRuleWidth;
+	column-width : @colwidth;
+	column-count : @colcount;
+	column-gap : @colgap;
+	column-rule-color : @columnRuleColor;
+	column-rule-style : @columnRuleStyle;
+	column-rule-width : @columnRuleWidth;
+}
+
+
+// Ratios
+
+/* Other ratios */
+// .ratio2_1:before{
+// 	padding-top: 50%;
+// }
+// .ratio1_2:before{
+// 	padding-top: 200%;
+// }
+// .ratio4_3:before{
+// 	padding-top: 75%;
+// }
+// .ratio16_9:before{
+// 	padding-top: 56.25%;
+// }
+// Images
+
+.retainImageWidth(@width: 480px)
+{
+	height: @width;
+	width: auto;
+	height: auto;
+	width: @width;
+}
+
+.retainImageHeight(@height: 480px)
+{
+	width: @height;
+	height: auto;
+	width: auto;
+	height: @height;
+}
+
+
+// Border radius
+.rounded(@radius) {
+	border-radius: @radius;
+	border-radius: @radius;
+}
+
+// box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];
+.box-shadow(@shadow1, @shadow2) {
+  -webkit-box-shadow: @shadow1, @shadow2; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow1, @shadow2;
+}
+
+.box-shadow(@shadow1, @shadow2, @shadow3) {
+  -webkit-box-shadow: @shadow1, @shadow2, @shadow3; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow1, @shadow2, @shadow3;
+}
+
+.box-shadow(@shadow1, @shadow2, @shadow3, @shadow4) {
+  -webkit-box-shadow: @shadow1, @shadow2, @shadow3, @shadow4; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow1, @shadow2, @shadow3, @shadow4;
+}
+
+.elevate-1(){
+	.box-shadow(0 1px 3px 0 fade(#000, 12%), 0 1px 2px 0 fade(#000, 24%));
+}
+
+.elevate-2(){
+	.box-shadow(0 3px 6px 0 rgba(0,0,0,0.16), 0 3px 6px 0 rgba(0,0,0,0.23));
+}
+
+.elevate-3(){
+	.box-shadow(0 12px 15px 0 fade(#000, 24%), 0 17px 50px 0 fade(#000, 19%));
+}
+
+.elevate-4(){
+	.box-shadow(0 16px 28px 0 fade(#000, 20%), 0 25px 55px 0 fade(#000, 21%));
+}
+
+.elevate-5(){
+	.box-shadow(0 27px 24px 0 fade(#000, 20%), 0 40px 77px 0 fade(#000, 22%));
+}
+
+.vertical-align(){
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(150%);
+	-ms-transform: translateY(150%);
+	transform: translateY(150%);
+}
+
+// Creates a wrapper for a series of columns
+.make-row(@gutter: @grid-gutter-width) {
+	margin-left:  (@gutter / -2);
+	margin-right: (@gutter / -2);
+	//&:extend(.clearfix all);
+	.clearfix();
+}
+
+// Generate the columns
+.make-column(@columns; @gutter: @grid-gutter-width) {
+	position: relative;
+	min-height: 1px;
+	padding-left:  (@gutter / 2);
+	padding-right: (@gutter / 2);
+	float: left;
+	width: percentage((@columns / @grid-columns));
+}
+
+.make-column-offset(@columns) {
+	margin-left: percentage((@columns / @grid-columns));
+}
+
+.make-column-push(@columns) {
+	left: percentage((@columns / @grid-columns));
+}
+
+.make-column-pull(@columns) {
+	right: percentage((@columns / @grid-columns));
+}
+
+// Flex layout
+// --------------------------------------------------
+// Flexbox LESS mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+
+// Flexbox display
+// flex or inline-flex
+.flex-display(@display: flex) {
+	display: ~"-webkit-@{display}";
+	display: ~"-moz-@{display}";
+	display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
+	display: ~"-ms-@{display}"; // IE11
+	display: @display;
+}
+
+// The 'flex' shorthand
+// - applies to: flex items
+// <positive-number>, initial, auto, or none
+.flex(@columns: initial) {
+  -webkit-flex: @columns;
+     -moz-flex: @columns;
+      -ms-flex: @columns;
+          flex: @columns;
+}
+
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+.flex-direction(@direction: row) {
+  -webkit-flex-direction: @direction;
+     -moz-flex-direction: @direction;
+      -ms-flex-direction: @direction;
+          flex-direction: @direction;
+}
+
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+.flex-wrap(@wrap: nowrap) {
+  -webkit-flex-wrap: @wrap;
+     -moz-flex-wrap: @wrap;
+      -ms-flex-wrap: @wrap;
+          flex-wrap: @wrap;
+}
+
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+.flex-flow(@flow) {
+  -webkit-flex-flow: @flow;
+     -moz-flex-flow: @flow;
+      -ms-flex-flow: @flow;
+          flex-flow: @flow;
+}
+
+// Display Order
+// - applies to: flex items
+// <integer>
+.flex-order(@order: 0) {
+  -webkit-order: @order;
+     -moz-order: @order;
+      -ms-order: @order;
+          order: @order;
+}
+
+// Flex grow factor
+// - applies to: flex items
+// <number>
+.flex-grow(@grow: 0) {
+  -webkit-flex-grow: @grow;
+     -moz-flex-grow: @grow;
+      -ms-flex-grow: @grow;
+          flex-grow: @grow;
+}
+
+// Flex shrink
+// - applies to: flex item shrink factor
+// <number> 
+.flex-shrink(@shrink: 1) {
+  -webkit-flex-shrink: @shrink;
+     -moz-flex-shrink: @shrink;
+      -ms-flex-shrink: @shrink;
+          flex-shrink: @shrink;
+}
+
+// Flex basis
+// - the initial main size of the flex item
+// - applies to: flex itemsnitial main size of the flex item
+// <width> 
+.flex-basis(@width: auto) {
+  -webkit-flex-basis: @width;
+     -moz-flex-basis: @width;
+      -ms-flex-basis: @width;
+          flex-basis: @width;
+}
+
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around 
+.justify-content(@justify: flex-start) {
+  -webkit-justify-content: @justify;
+     -moz-justify-content: @justify;
+      -ms-justify-content: @justify;
+          justify-content: @justify;
+}
+
+// Packing Flex Lines
+// - applies to: multi-line flex containers
+// flex-start | flex-end | center | space-between | space-around | stretch 
+.align-content(@align: stretch) {
+  -webkit-align-content: @align;
+     -moz-align-content: @align;
+      -ms-align-content: @align;
+          align-content: @align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch 
+.align-items(@align: stretch) {
+  -webkit-align-items: @align;
+     -moz-align-items: @align;
+      -ms-align-items: @align;
+          align-items: @align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex items
+// auto | flex-start | flex-end | center | baseline | stretch 
+.align-self(@align: auto) {
+  -webkit-align-self: @align;
+     -moz-align-self: @align;
+      -ms-align-self: @align;
+          align-self: @align;
+}
+
+// Creates a wrapper for a series of columns
+.make-flex-row(@gutter: @grid-gutter-width) {
+	.flex-display();
+	.flex-direction(row);
+	.flex-wrap(wrap);
+	// margin-left:  (@gutter / -2);
+	// margin-right: (@gutter / -2);
+	margin: -@gutter 0  @gutter -@gutter;
+}
+
+// Generate the columns
+.make-flex-column(@columns; @gutter: @grid-gutter-width) {
+	padding: @gutter 0 0 @gutter;
+	// padding-left:  (@gutter / 2);
+	// padding-right: (@gutter / 2);
+	// flex-basis: percentage((@columns / @grid-columns));
+	flex: 1 0 percentage((@columns / @grid-columns));
+}
+
+.make-flex-column-offset(@columns) {
+	margin-left: percentage((@columns / @grid-columns));
+}
+
+.make-flex-column-push(@columns) {
+	left: percentage((@columns / @grid-columns));
+}
+
+.make-flex-column-pull(@columns) {
+	right: percentage((@columns / @grid-columns));
+}
+
+// .reset-flex-row() {
+// 	.flex-display();
+// 	.flex-direction(row);
+// 	.flex-wrap(wrap);
+// 	// margin-left:  (@gutter / -2);
+// 	// margin-right: (@gutter / -2);
+// 	margin: -@gutter 0  @gutter -@gutter;
+// }
