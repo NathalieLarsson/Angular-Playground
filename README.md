@@ -2,7 +2,7 @@
 
 My playground for Angular. Contains a few number of unfinished angular projects I work on when I have the time.
 
-#### [Quickstart](../../tree/master/Angular-Quickstart/_src)
+#### [Quickstart](../../tree/master/Angular-QuickStart/_src)
 Based on Angulars Quickstart tutorial for Angular 2
 
 #### [Heroes](../../tree/master/Angular-Hero/_src)
