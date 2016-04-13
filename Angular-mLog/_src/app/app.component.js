@@ -1,4 +1,4 @@
-System.register(['angular2/core', './user/user.service', './user/user.component', './dashboard.component', './user/user-detail.component', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', './user/user.service', './sites/site.service', './user/user.component', './sites/site.component', './dashboard.component', './user/user-detail.component', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './user/user.service', './user/user.component'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_service_1, user_component_1, dashboard_component_1, user_detail_component_1, router_1;
+    var core_1, user_service_1, site_service_1, user_component_1, site_component_1, dashboard_component_1, user_detail_component_1, router_1;
     var AppComponent;
     return {
         setters:[
@@ -20,8 +20,14 @@ System.register(['angular2/core', './user/user.service', './user/user.component'
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             },
+            function (site_service_1_1) {
+                site_service_1 = site_service_1_1;
+            },
             function (user_component_1_1) {
                 user_component_1 = user_component_1_1;
+            },
+            function (site_component_1_1) {
+                site_component_1 = site_component_1_1;
             },
             function (dashboard_component_1_1) {
                 dashboard_component_1 = dashboard_component_1_1;
@@ -41,11 +47,12 @@ System.register(['angular2/core', './user/user.service', './user/user.component'
                     core_1.Component({
                         selector: 'my-app',
                         styleUrls: ['app/css/app.component.css'],
-                        template: "\n    \t<h1>{{title}}</h1>\n        <nav>\n            <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n            <a [routerLink]=\"['Users']\">Users</a>\n        </nav>\n\t\t<router-outlet></router-outlet>\n    ",
+                        templateUrl: './app/app.component.html',
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
-                            user_service_1.UserService
+                            user_service_1.UserService,
+                            site_service_1.SiteService
                         ]
                     }),
                     router_1.RouteConfig([
@@ -53,6 +60,11 @@ System.register(['angular2/core', './user/user.service', './user/user.component'
                             path: '/Users',
                             name: 'Users',
                             component: user_component_1.UsersComponent
+                        },
+                        {
+                            path: '/Sites',
+                            name: 'Sites',
+                            component: site_component_1.SitesComponent
                         },
                         {
                             path: '/dashboard',

@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="sidebar">
+		<div class="sidebar-inner">
+			<nav>
+				<a [routerLink]="['Dashboard']">Dashboard</a>
+				<a [routerLink]="['Users']">Users</a>
+				<a [routerLink]="['Sites']">Sites</a>
+			</nav>
+			<app-nav></app-nav>
+		</div>
+	</div>
+	
+	<div class="main-content">
+		<div class="main-content-inner">
+			<h1>{{title}}</h1>
+
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</div>
+
+
