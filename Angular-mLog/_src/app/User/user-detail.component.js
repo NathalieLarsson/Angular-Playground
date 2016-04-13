@@ -42,21 +42,20 @@ System.register(['angular2/core', './user', 'angular2/router', './user.service']
                 };
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', (typeof (_a = typeof user_1.User !== 'undefined' && user_1.User) === 'function' && _a) || Object)
+                    __metadata('design:type', user_1.User)
                 ], UserDetailComponent.prototype, "user", void 0);
                 UserDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'my-user-detail',
-                        templateUrl: '../user-detail.component.html',
-                        styleUrls: ['app/css/user-detail.component.css']
+                        templateUrl: 'app/user/html/user-detail.component.html',
+                        styleUrls: ['app/user/css/user-detail.component.css']
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService, router_1.RouteParams])
                 ], UserDetailComponent);
                 return UserDetailComponent;
-                var _a;
             }());
             exports_1("UserDetailComponent", UserDetailComponent);
         }
     }
 });
-//# sourceMappingURL=User-detail.component.js.map
+//# sourceMappingURL=user-detail.component.js.map

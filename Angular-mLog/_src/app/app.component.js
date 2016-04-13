@@ -1,4 +1,4 @@
-System.register(['angular2/core', './user.service', './user.component', './dashboard.component', './user-detail.component', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', './user/user.service', './user/user.component', './dashboard.component', './user/user-detail.component', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

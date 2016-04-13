@@ -1,8 +1,8 @@
 import { Component } from 'angular2/core';
-import { UserService } from './user.service';
-import { UsersComponent } from './user.component';
+import { UserService } from './user/user.service';
+import { UsersComponent } from './user/user.component';
 import { DashboardComponent } from './dashboard.component';
-import { UserDetailComponent } from './user-detail.component';
+import { UserDetailComponent } from './user/user-detail.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 
 @Component({

@@ -1,28 +1,13 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { User } from './user';
-import { UserDetailComponent } from './User-detail.component';
+import { UserDetailComponent } from './user-detail.component';
 import { UserService } from './user.service';
 
 @Component({
 	selector: 'my-users',
-	styleUrls: ['app/css/users.component.css'],
-	template: `
-		<ul class="users">
-			<li *ngFor="#user of users" 
-				[class.selected]="herp === selectedUser" 
-				(click)="onSelect(user)">
-				<span class="badge">{{user.id}}</span> {{user.name}}
-			</li>
-		</ul>
-		
-		<div *ngIf="selectedUser">
-			<h2>
-				{{selectedUser.name | uppercase}} is my user
-			</h2>
-			<button (click)="gotoDetail()">View Details</button>
-		</div>
-	`,
+	styleUrls: ['app/user/css/users.component.css'],
+	templateUrl: 'app/user/html/user.component.html',
 	directives: [UserDetailComponent]
 })
 
