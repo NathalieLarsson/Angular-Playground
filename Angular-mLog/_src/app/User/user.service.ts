@@ -1,5 +1,5 @@
-import {USERS} from '../mock/mock-users';
-import {User} from '/User';
+import {USERS} from '../_data/mock-users';
+import {User} from './User';
 import {Injectable} from 'angular2/core';
 
 @Injectable()

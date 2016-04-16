@@ -1,4 +1,4 @@
-System.register(['../mock/mock-sites', 'angular2/core'], function(exports_1, context_1) {
+System.register(['../_data/mock-sites', '../_data/mock-data', 'angular2/core', 'rxjs/Rx', 'rxjs/Observable', 'angular2/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,19 +10,30 @@ System.register(['../mock/mock-sites', 'angular2/core'], function(exports_1, con
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var mock_sites_1, core_1;
+    var mock_sites_1, mock_data_1, core_1, Observable_1, http_1;
     var SiteService;
     return {
         setters:[
             function (mock_sites_1_1) {
                 mock_sites_1 = mock_sites_1_1;
             },
+            function (mock_data_1_1) {
+                mock_data_1 = mock_data_1_1;
+            },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (_1) {},
+            function (Observable_1_1) {
+                Observable_1 = Observable_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             SiteService = (function () {
-                function SiteService() {
+                function SiteService(_http) {
+                    this._http = _http;
                 }
                 SiteService.prototype.getSites = function () {
                     return Promise.resolve(mock_sites_1.SITES);
@@ -33,13 +44,47 @@ System.register(['../mock/mock-sites', 'angular2/core'], function(exports_1, con
                 SiteService.prototype.getSitesSlowly = function () {
                     return new Promise(function (resolve) {
                         return setTimeout(function () { return resolve(mock_sites_1.SITES); }, 2000);
-                    } // 2 seconds
-                     // 2 seconds
-                    );
+                    });
+                };
+                SiteService.prototype.getData = function (id) {
+                    return Promise.resolve(mock_data_1.DATA).then(function (Data) { return Data.filter(function (data) { return data.siteId === id; })[0]; });
+                };
+                SiteService.prototype.getmBizData = function () {
+                    return this._http.get('app/_data/mbiz-data.json').map(function (response) { return response.json(); }); //.then(this.extractDataPro).catch(this.handleErrorPro);
+                };
+                SiteService.prototype.extractData = function (res) {
+                    if (res.status < 200 || res.status >= 300) {
+                        throw new Error('Bad response status: ' + res.status);
+                    }
+                    var body = res.json();
+                    this.objectData = res.json();
+                    //console.log(this.objectData);
+                    return this.objectData || {};
+                };
+                SiteService.prototype.handleError = function (error) {
+                    var errMsg = error.message || 'Server error';
+                    console.error(errMsg);
+                    return Observable_1.Observable.throw(errMsg);
+                };
+                SiteService.prototype.extractDataPro = function (res) {
+                    if (res.status < 200 || res.status >= 300) {
+                        throw new Error('Bad response status: ' + res.status);
+                    }
+                    var body = res.json();
+                    //this.objectData = res.json();
+                    console.log(res.json());
+                    //return this.objectData || { };
+                    return body || {};
+                };
+                SiteService.prototype.handleErrorPro = function (error) {
+                    // In a real world app, we might send the error to remote logging infrastructure
+                    var errMsg = error.message || 'Server error';
+                    console.error(errMsg); // log to console instead
+                    return Promise.reject(errMsg);
                 };
                 SiteService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], SiteService);
                 return SiteService;
             }());

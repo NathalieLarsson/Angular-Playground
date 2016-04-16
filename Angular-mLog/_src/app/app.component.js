@@ -1,4 +1,4 @@
-System.register(['angular2/core', './user/user.service', './sites/site.service', './user/user.component', './sites/site.component', './dashboard.component', './user/user-detail.component', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', './user/user.service', './sites/site.service', './user/user.component', './sites/site.component', './dashboard/dashboard.component', './user/user-detail.component', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -46,7 +46,7 @@ System.register(['angular2/core', './user/user.service', './sites/site.service',
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        styleUrls: ['app/css/app.component.css'],
+                        styleUrls: ['./app/app.component.css'],
                         templateUrl: './app/app.component.html',
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [

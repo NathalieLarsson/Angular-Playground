@@ -1,0 +1,50 @@
+[{
+    "performace": {
+        "timing": {
+            "navigationStart": 1460619956134,
+            "unloadEventStart": 1460619956181,
+            "unloadEventEnd": 1460619956182,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1460619956134,
+            "domainLookupStart": 1460619956134,
+            "domainLookupEnd": 1460619956134,
+            "connectStart": 1460619956134,
+            "connectEnd": 1460619956134,
+            "secureConnectionStart": 0,
+            "requestStart": 1460619956143,
+            "responseStart": 1460619956180,
+            "responseEnd": 1460619956181,
+            "domLoading": 1460619956199,
+            "domInteractive": 1460619957111,
+            "domContentLoadedEventStart": 1460619957112,
+            "domContentLoadedEventEnd": 1460619957126,
+            "domComplete": 1460619957159,
+            "loadEventStart": 1460619957159,
+            "loadEventEnd": 1460619957159
+        },
+        "cores": 8,
+        "platform": "MacIntel"
+    },
+    "screen": {
+        "availWidth": 1440,
+        "availHeight": 877,
+        "availTop": -62,
+        "availLeft": 2560,
+        "pixelDepth": 24,
+        "height": 900,
+        "width": 1440,
+        "orientationAngle": 0,
+        "orientationType": "landscape-primary"
+    },
+    "sender": "browser",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36",
+    "platform": "MacIntel",
+    "currentScript": null,
+    "href": "https://mbiz.mirror.se/#tid",
+    "frameCount": 0,
+    "timestamp": 42698.405,
+    "loadedTimestamp": 4521.295,
+    "uptime": 38177.11,
+    "host": "mbiz.mirror.se"
+}]

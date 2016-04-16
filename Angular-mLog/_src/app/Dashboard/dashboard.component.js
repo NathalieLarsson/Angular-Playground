@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './user/user.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../user/user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -42,8 +42,8 @@ System.register(['angular2/core', 'angular2/router', './user/user.service'], fun
                 DashboardComponent = __decorate([
                     core_1.Component({
                         selector: 'my-dashboard',
-                        templateUrl: '../dashboard.component.html',
-                        styleUrls: ['app/css/dashboard.component.css']
+                        templateUrl: './app/dashboard/dashboard.component.html',
+                        styleUrls: ['./app/dashboard/dashboard.component.css']
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService])
                 ], DashboardComponent);

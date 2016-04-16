@@ -1,12 +1,12 @@
 import {Component, OnInit} from 'angular2/core';
 import { Router } from 'angular2/router';
-import { User } from './user/user';
-import { UserService } from './user/user.service';
+import { User } from '../user/user';
+import { UserService } from '../user/user.service';
 
 @Component({
     selector: 'my-dashboard',
-    templateUrl: '../dashboard.component.html',
-    styleUrls: ['app/css/dashboard.component.css']
+    templateUrl: './app/dashboard/dashboard.component.html',
+    styleUrls: ['./app/dashboard/dashboard.component.css']
 })
 
 export class DashboardComponent implements OnInit{

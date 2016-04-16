@@ -5,24 +5,20 @@ module.exports = function(grunt) {
 		less: {
 			development: {
 				files: {
-					'core/styles.css': 'less/manifest.less'
+					'core/styles.css': 'static/less/manifest.less'
 				},
 				options: {
 					compress: false,
 					yuicompress: false,
 					dumpLineNumbers: 'comments',
-					sourceMap: false,
-					sourceMapFilename: '../static/css/styles.css.map',
-					sourceMapURL: 'styles.css.map',
-					sourceMapBasepath: '../static/css/',
-					sourceMapRootpath: '/'
+					sourceMap: false
 				},
 				expand: true
 			}
 		},
 		watch: {
 			css: {
-				files: ['less/**/*.less'],
+				files: ['static/less/**/*.less'],
 				tasks: ['less:development'],
 				options: {
 					livereload: true

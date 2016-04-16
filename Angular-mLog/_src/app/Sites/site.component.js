@@ -35,10 +35,26 @@ System.register(['angular2/core', './site', 'angular2/router', './site.service']
                 }
                 SitesComponent.prototype.getSites = function () {
                     var _this = this;
-                    this._siteService.getSites().then(function (sites) { return _this.sites = sites; });
+                    this._siteService.getSites().then(function (sites) {
+                        _this.sites = sites;
+                        _this.mapSites(sites);
+                        return sites;
+                    });
                 };
                 SitesComponent.prototype.ngOnInit = function () {
                     this.getSites();
+                    this.mbizData = this.getmBizDataMap();
+                };
+                SitesComponent.prototype.mapSites = function (sites) {
+                    sites.forEach(function (site) {
+                        site.data == this._siteService.getData((site.id));
+                    }, this);
+                };
+                SitesComponent.prototype.getmBizDataMap = function () {
+                    var _this = this;
+                    this.mbizData = undefined;
+                    this._siteService.getmBizDataMap().subscribe(function (rootObj) { return _this.mbizData = rootObj; });
+                    return this.mbizData;
                 };
                 SitesComponent = __decorate([
                     core_1.Component({

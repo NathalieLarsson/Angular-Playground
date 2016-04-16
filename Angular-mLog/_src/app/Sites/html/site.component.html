@@ -2,6 +2,23 @@
 
 <ul>
 	<li *ngFor="#site of sites">
-		{{site.name}} - {{site.url}}
+		{{site.name}} - {{site.url}} - {{site.data}}
 	</li>
+</ul>
+
+<ul>
+	<li *ngFor="#data of dataCollection">{{data.value}}</li>
+</ul>
+
+<span>{{mbizData | json}}</span>
+
+<ul>
+	<!--<li><strong>Url:</strong> {{mbizData.href}}</li>-->
+	<!--<li><strong>Platform:</strong> {{mbizData.platform}}</li>-->
+	<!--<li><strong>User agent:</strong> {{mbizData.userAgent}}</li>-->
+	<!--<li class="li-heading"><strong>Screen</strong> {{ screen | json }}</li>
+	<!--<li><strong>Avail width:</strong> {{mbizData.screen.pixelDepth}}</li>-->
+	<!--<li><strong>Avail height:</strong> {{mbizData.screen.availHeight}}</li>
+	<li><strong>Pixel depth:</strong> {{mbizData.screen.pixelDepth}}</li>
+	<li><strong>Orientation type:</strong> {{mbizData.screen.orientationType}}</li>-->
 </ul>
